@@ -3,5 +3,38 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
+    app:startDestination="@id/LandingFragment">
+
+    <fragment
+        android:id="@+id/LandingFragment"
+        android:name="com.example.graphdemo.LandingFragment"
+        android:label="Landing">
+        <action
+            android:id="@+id/action_landing_to_name"
+            app:destination="@+id/nameInput" />
+    </fragment>
+
+    <fragment
+        android:id="@id/nameInput"
+        android:name="com.example.graphdemo.NameFragment"
+        android:label="Name Input">
+        <action
+            android:id="@+id/action_name_to_validation"
+            app:destination="@+id/validation">
+            <argument
+                android:name="firstName"
+                app:argType="string" />
+            <argument
+                android:name="lastName"
+                app:argType="string" />
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@id/validation"
+        android:name="com.example.graphdemo.ValidationFragment"
+        android:label="Validation">
+    </fragment>
+
+
 </navigation>
